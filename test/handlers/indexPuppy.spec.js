@@ -1,18 +1,14 @@
 const assert = require('assert');
-const { createPuppy } = require('../../handlers/createPuppy.js');
+const { indexPuppy } = require('../../handlers/indexPuppy.js');
 
 describe('createPuppy', () => {
   it('returns created puppy', (done) => {
-    const puppyParams = {
-      name: 'pupper!',
-    };
-
     const cb = (idk, response) => {
       assert.equal(response.statusCode, 201);
-      assert.equal(response.body.name, puppyParams.name);
+      assert.equal(response.body[0].name, 'pupper!');
       done();
     };
 
-    createPuppy(puppyParams, cb);
+    indexPuppy(cb);
   });
 });
