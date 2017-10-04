@@ -1,4 +1,4 @@
 testing
 ```bash
-serverless invoke local --function createPuppy -s test
+serverless invoke local --function createPuppy -s qa --path test/createPuppy.json
 ```
