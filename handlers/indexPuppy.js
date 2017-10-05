@@ -6,7 +6,7 @@ mongoose.Promise = bluebird;
 const PuppyModel = require('../models/puppy.js');
 
 module.exports.indexPuppy = (cb) => {
-  const db = mongoose.connect('mongodb://0.0.0.0/puppy-cafe-test', {
+  const db = mongoose.connect(process.env.MONGODB_URL, {
     useMongoClient: true,
   });
 

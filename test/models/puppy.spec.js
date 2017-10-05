@@ -5,7 +5,7 @@ const PuppyModel = require('../../models/puppy.js');
 describe('Puppy', () => {
   it('inserts into mongo', () => {
     const puppyId = '_id';
-    const db = mongoose.connect('mongodb://0.0.0.0/puppy-cafe-test').connection;
+    const db = mongoose.connect(process.env.MONGODB_URL).connection;
 
     const puppy = new PuppyModel({ name: 'pupper!' });
 
