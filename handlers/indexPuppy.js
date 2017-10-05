@@ -10,18 +10,18 @@ module.exports.indexPuppy = (cb) => {
     useMongoClient: true,
   });
 
-  const response = { statusCode: 201 };
+  const response = { statusCode: 200, body: [] };
 
   db.once('open', () => {
     PuppyModel
       .find()
       .then((puppies) => {
-        response.body = puppies;
+        response.body = JSON.stringify(puppies);
         cb(null, response);
       })
       .catch((err) => {
         response.statusCode = 422;
-        response.body = err.message;
+        response.body = JSON.stringify(err.message);
         cb(null, response);
       })
       .finally(() => db.close());

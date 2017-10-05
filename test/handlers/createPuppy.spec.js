@@ -4,15 +4,19 @@ const { createPuppy } = require('../../handlers/createPuppy.js');
 describe('createPuppy', () => {
   it('returns created puppy', (done) => {
     const puppyParams = {
-      name: 'pupper!',
+      puppy: {
+        name: 'pupper!',
+      },
     };
 
     const cb = (idk, response) => {
       assert.equal(response.statusCode, 201);
-      assert.equal(response.body.name, puppyParams.name);
+
+      const body = JSON.parse(response.body);
+      assert.equal(body.name, puppyParams.puppy.name);
       done();
     };
 
-    createPuppy(puppyParams, cb);
+    createPuppy(JSON.stringify(puppyParams), cb);
   });
 });

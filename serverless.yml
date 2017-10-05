@@ -59,7 +59,7 @@ provider:
 functions:
   createPuppy:
     handler: handler.createPuppy
-    memorySize: 512
+    memorySize: 128
     events:
       - http:
          path: puppy
@@ -68,7 +68,7 @@ functions:
 
   indexPuppy:
     handler: handler.indexPuppy
-    memorySize: 512
+    memorySize: 128
     events:
       - http:
          path: puppies

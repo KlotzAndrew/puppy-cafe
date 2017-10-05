@@ -1,5 +1,7 @@
 {
-  "puppy": {
-    "name": "cool doggo"
+  "body": {
+    "puppy": {
+      "name": "cool doggo"
+    }
   }
 }
