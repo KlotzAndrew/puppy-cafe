@@ -77,6 +77,18 @@ functions:
          method: get
          cors: true
 
+  syncPuppies:
+    handler: handler.syncPuppies
+    memorySize: 128
+    events:
+      - schedule:
+        rate: cron(0/1 * * * ? *)
+        name: 'syncPuppies cron'
+        description: 'syncPuppies on a regular basis'
+        enabled: false
+    environment:
+      SYNC_URL: ${file(.env.yml):${opt:stage}.SYNC_URL}
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

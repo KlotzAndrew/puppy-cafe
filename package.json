@@ -4,15 +4,17 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "MONGODB_URL=mongodb://0.0.0.0/puppy-cafe-test mocha ./test/**/*.spec.js",
+    "test": "MONGODB_URL=mongodb://0.0.0.0/puppy-cafe-test SYNC_URL='0.0.0.0' mocha ./test/**/*.spec.js",
     "lint": "eslint --ext .js ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
     "bluebird": "^3.5.0",
-    "mongoose": "^4.11.14"
+    "mongoose": "^4.11.14",
+    "sinon": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
